@@ -1,5 +1,6 @@
 import React, { Component, PropTypes, Children } from 'react';
 import ReactDOM from 'react-dom';
+
 export default class Hello extends Component {
 
   componentDidMount() {
@@ -7,7 +8,6 @@ export default class Hello extends Component {
   }
 
   doSomething = () => {
-    console.log ('doSomething');
     this.props.onDoSomething();
   }
 
@@ -18,11 +18,11 @@ export default class Hello extends Component {
     const isChildren = Array.isArray(this.props.children);
     if (isChildren) {
       throw('<Hello> component doen not support multiple children')
-    } else if (this.props.children === undefined){
+    } else if (!this.props.children){
       throw('<Hello> component cannot ben empty')
     }
-
   }
+
   render() {
     const {cls, color, children} = this.props;
     this.checkRender();

@@ -36,7 +36,7 @@ import ReactDOM from 'react-dom';
 export default class Hello extends Component {
 
   componentDidMount() {
-    //console.log (ReactDOM.findDOMNode(this))
+    // console.log ('do nothing');
   }
 
   doSomething = () => {
@@ -44,18 +44,15 @@ export default class Hello extends Component {
     this.props.onDoSomething();
   }
 
-  /**
-   * Component cannot be empty or have multiple children
-   */
   checkRender = () => {
     const isChildren = Array.isArray(this.props.children);
     if (isChildren) {
       throw('<Hello> component doen not support multiple children')
-    } else if (this.props.children === undefined){
+    } else if (!this.props.children){
       throw('<Hello> component cannot ben empty')
     }
-
   }
+
   render() {
     const {cls, color, children} = this.props;
     this.checkRender();
