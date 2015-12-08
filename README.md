@@ -1,4 +1,6 @@
-# React-PubSub
+# react-test-ui-components
+
+#### Working in progress
 
 ---
 
@@ -7,6 +9,7 @@ It uses [AVA](https://github.com/sindresorhus/ava), [Airbnb Enzyne](https://gith
 
 
 Based on (library-boilerplate)[https://github.com/gaearon/library-boilerplate] by Dan Abramov
+
 ## Run the demo
 
 1. Go to `./demo` folder
