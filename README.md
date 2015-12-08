@@ -206,7 +206,7 @@ test.serial('should invoke componentDidMount when component is initialized', t =
 
 * Add more tests
 * Add tests for ES6 modules
-* Test Components that use 3rd party api (i.e. jQueryUI, GSAP Tweenmax, ...)
+* Create tests for components that are using 3rd party libraries (i.e. jQueryUI, GSAP Tweenmax, ...)
 
 # Documentation
 
