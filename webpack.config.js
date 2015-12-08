@@ -42,7 +42,7 @@ module.exports = {
     }]
   },
   output: {
-    library: 'react-pubsub',
+    library: 'react-test-ui-components',
     libraryTarget: 'umd'
   },
   plugins: plugins,
