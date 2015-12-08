@@ -85,13 +85,13 @@ Hello.defaultProps = {
 ```
 
 
-# GOALS
+## GOALS
 
-## We want to test the follwoing behaviors:
+## Test the following behaviors:
 
 ### children
 
-`Hello` works fine with a child:
+Test if the `Hello` component works fine with a child:
 
 ```javascript
 test.serial('should work with a child', t => {
@@ -104,7 +104,7 @@ test.serial('should work with a child', t => {
 });
 ```
 
-`Hello` must have at least an element:
+Test if `Hello` properly return an exception when it has not children:
 
 ```javascript
 test.serial('should not be empty', t => {
@@ -126,7 +126,7 @@ test.serial('should not be empty', t => {
 ```
 
 
-`Hello` cannot have multiple children
+Test if `Hello` properly return an exception when it has multiple children
 
 ```javascript
 
@@ -146,7 +146,7 @@ test.serial('should not support multiple children', t => {
 
 ### properties
 
-A CSS class is applied to the root DOM element:
+Test if a CSS class is applied to the root DOM element:
 
 ```javascript
 test.serial('should apply a custom CSS class to the root DOM element', t => {
@@ -191,7 +191,7 @@ test.serial('support "onDoSomething" callback', t => {
 ### Component lifecycle
 
 
-`componentDidMount` has been called
+Test if `componentDidMount` has been called
 
 ```javascript
 test.serial('should invoke componentDidMount when component is initialized', t => {
