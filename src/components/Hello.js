@@ -7,14 +7,15 @@ export default class Hello extends Component {
     // console.log (ReactDOM.findDOMNode(this))
   }
 
-  doSomething() {
-    this.props.onDoSomething();
+  onClickButton() {
+    window.open(this.props.url);
+    this.props.onClickButton();
   }
 
   /**
    * Component cannot be empty or have multiple children
    */
-  checkRender() {
+  childrenValidation() {
     const isChildren = Array.isArray(this.props.children);
     if (isChildren) {
       throw new Error('<Hello> component doen not support multiple children');
@@ -23,14 +24,18 @@ export default class Hello extends Component {
     }
   }
 
+  renderLinkButton() {
+    return (this.props.url) ? <button onClick={() => this.onClickButton()}>Visit Website</button> : null;
+  }
+
   render() {
     const {cls, color, children} = this.props;
-    this.checkRender();
+    this.childrenValidation();
 
     return (
       <div className={cls} style={{color: color}}>
         {children}
-        <button onClick={() => this.doSomething()}>Visit Website</button>
+        {this.renderLinkButton()}
       </div>
     );
   }
@@ -39,12 +44,14 @@ export default class Hello extends Component {
 
 Hello.propTypes = {
   color: PropTypes.string,
+  url: PropTypes.string,
   cls: PropTypes.string,
   children: PropTypes.any.isRequired,
-  onDoSomething: PropTypes.func,
+  onClickButton: PropTypes.func,
 };
 
 Hello.defaultProps = {
   color: 'red',
-  onDoSomething() {},
+  url: null,
+  onClickButton() {},
 };

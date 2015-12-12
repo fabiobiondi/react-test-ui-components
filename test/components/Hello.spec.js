@@ -105,11 +105,22 @@ test.serial('should set the "color" CSS property to the root DOM element', t => 
 });
 
 
-test.serial('should call "onDoSomething" callback', t => {
+test.serial('should dont call "onClickButton" callback if url is NOT defined', t => {
   const myCallBack = sinon.spy();
-  const wrapper = mount(<Hello onDoSomething={myCallBack}>...</Hello>);
+  const wrapper = mount(<Hello onClickButton={myCallBack}>...</Hello>);
   // Simulate Click
-  wrapper.find('button').simulate('click');
+  const button = wrapper.find('button');
+  console.log ("...1>", wrapper.contains(<button />))
+  t.is (button.length, 0, 'the callback has not been called')
+  t.end();
+});
+
+test.serial('should call "onClickButton" callback if url is defined', t => {
+  const myCallBack = sinon.spy();
+  const wrapper = mount(<Hello onClickButton={myCallBack} url="http://www.xyz.fakeurl.com">...</Hello>);
+  // Simulate Click
+  const button = wrapper.find('button').simulate('click');
+  console.log ("...2>", button.length)
   t.is (myCallBack.calledOnce, true, 'the callback has not been called')
   t.end();
 });
