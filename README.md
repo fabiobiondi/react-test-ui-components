@@ -15,6 +15,7 @@ Based on (library-boilerplate)[https://github.com/gaearon/library-boilerplate] b
 1. Go to `./demo` folder
 2. `npm install`
 3. `npm start`
+4. browse http://localhost:3000
 
 ## Run Test
 
